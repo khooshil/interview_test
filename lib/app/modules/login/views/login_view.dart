@@ -9,13 +9,14 @@ class LoginView extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child:Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Login page", style: TextStyle(fontSize: 24),),
+              const Text("Login Screen", style: TextStyle(fontSize: 24),),
               const SizedBox(height: 40),
                TextField(
                 controller: controller.emailTextEditingController,
@@ -36,7 +37,6 @@ class LoginView extends GetView<LoginController> {
                 onPressed: () {
                   String username = controller.emailTextEditingController.text;
                   String password = controller.psdTextEditingController.text;
-
                   controller.login(username, password);
                 },
                 child: Text("Login"),

@@ -38,6 +38,7 @@ dependencies:
   get_cli:
   get: ^4.6.6
   http: ^0.13.5
+  shared_preferences: ^2.3.2
 
 dev_dependencies:
   flutter_test:

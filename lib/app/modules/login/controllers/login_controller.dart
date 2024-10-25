@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../const/constant.dart';
 import '../../../routes/app_pages.dart';
 import '../model/login_req_model.dart';
@@ -35,7 +35,9 @@ class LoginController extends GetxController {
         print("Token: ${token.value}");
         print(response.body);
         Get.snackbar("","Login successfully",snackPosition: SnackPosition.BOTTOM,);
-        // Get.toNamed();
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('isLogin', true);
+        Get.toNamed(Routes.CATEGORIES_SCREEN);
       } else {
         if(username.isEmpty && password.isEmpty){
           Get.snackbar("","please enter valid username and password",snackPosition: SnackPosition.BOTTOM,);
